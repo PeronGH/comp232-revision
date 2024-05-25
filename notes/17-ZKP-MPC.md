@@ -28,7 +28,7 @@
   - Example: Prover may convince Verifier that they have an input (message, number) which produces a given hash
 - Advantages: small proofs and cheap verification
 - Disadvantages: expensive prover computations (both time and space)
-- Statement to be proved (F(x,w)=true) has to be presented by a circuit (10-20 million gates max as of 2017, taking 1ms per gate to produce a proof)
+- Statement to be proved (`F(x,w)=true`) has to be presented by a circuit (10-20 million gates max as of 2017, taking 1ms per gate to produce a proof)
 
 ### DIZK (Distributed Zero-Knowledge Proof System)
 - Developed by H. Wu et al. at UC Berkeley (2018)

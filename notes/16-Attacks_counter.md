@@ -84,7 +84,7 @@
 - Example: Morris Worm (1988), distributed via the Internet by Robert Morris
   - Not intended to cause harm, but to highlight security flaws
   - Damage caused by excessive replication, making many infected systems unusable
-  - Estimated cost of damage: $100,000 to $10,000,000
+  - Estimated cost of damage: \$100,000 to \$10,000,000
   - Thousands of computers were down for days, and the Internet was partitioned for a few days while regional networks were cleaned
   - United States v. Morris: Robert Morris was tried and convicted under the Computer Fraud and Abuse Act
 

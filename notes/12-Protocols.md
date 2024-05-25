@@ -9,14 +9,14 @@
 - A and B obtain a shared secret key through authentication server S
 - The protocol uses shared-key encryption/decryption
 - Message exchange:
-  1. A → S: A, B, N_A
-  2. S → A: {K_AB, B, N_A, {K_AB, A}_Kb}_Ka
-  3. A → B: {K_AB, A}_Kb
-  4. B → A: {N_B}_Kab
-  5. A → B: {N_B - 1}_Kab
-- K_a and K_b are keys of A and B shared with S, respectively
-- N_A and N_B are nonces introduced by A and B, respectively
-- K_AB is a secret session key for A and B provided by S
+  1. $A \rightarrow S:A,B,N_A$​
+  2. $S \rightarrow A: \{N_A,B,K_{AB},\{K_{AB},A\}_{K_B}\}_{K_A}$
+  3. $A \rightarrow B:\{K_{AB},A\}_{K_B}$
+  4. $B \rightarrow A:\{N_B\}_{K_{AB}}$
+  5. $A \rightarrow B:\{N_B-1\}_{K_{AB}}$
+- $K_A$ and $K_B$ are keys of $A$ and $B$ shared with $S$, respectively
+- $N_A$ and $N_B$ are nonces introduced by $A$ and $B$, respectively
+- $K_{AB}$ is a secret session key for $A$ and $B$ provided by $S$
 
 ## Correctness of Protocols
 - Establishing correctness is challenging due to the presence of a malicious agent (intruder or adversary) who may have complete or partial control over the communication network and different computational capabilities
