@@ -40,14 +40,17 @@
 
 ## Diffie-Hellman Key Exchange
 - Algorithm for key exchange, not encryption
-- Based on the difficulty of computing discrete logarithms
+- Secure due to the difficulty of computing discrete logarithms
+  - DLP: For $A=g^a\mod p$, know $A, g, p$, infeasible to compute $a$
+
 - Publicly known numbers: prime $q$, primitive root $\alpha$ of $q$
 - Key exchange process:
   1. A selects random integer $X_A$, computes $Y_A = \alpha^{X_A} \mod q$, sends $Y_A$ to B
   2. B selects random integer $X_B$, computes $Y_B$ = $\alpha^{X_B} \mod q$, sends $Y_B$ to A
   3. A computes $K = {Y_B}^{X_A} \mod q$
   4. B computes $K = {Y_A}^{X_B} \mod q$
-  5. $K$ is the shared secret key
+  5. $K$​​ is the shared secret key
+- Attack: compute $X_A$ from $\alpha,q,Y_A$, then compute $K$
 
 ## Message Authentication Code (MAC)
 - Verifies the authenticity (genuineness and origin) of a message
