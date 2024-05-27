@@ -32,7 +32,7 @@ Describe the Diffie-Hellman (DH) Key Exchange algorithm and the attack on this a
 
 Answer:
 
-[Notes](../notes/07-Algorithms.md#Diffie-Hellman%20Key%20Exchange)
+[Notes](../notes/07-Algorithms.md#Diffie-Hellman Key Exchange)
 
 ## 2.(a)
 
@@ -68,6 +68,105 @@ What is wrong in the following algorithm for computing a hash function? Take a m
 Answer:
 
 - The major problem is that it is not deterministic
-- Also the output length may not be fixed, as the encrypted message may not have 240bits
+- Also the output length may not be fixed, as the encrypted message may be shorter than 240bits
 - For message less than 240bits, one can comp the original message if public key is known
 - RSA is much slower
+
+## 3.(a)
+
+Explain what are the advantages and disadvantages of using quantum generator of random numbers in cryptography
+
+Answer:
+
+Advantages:
+
+1. True randomness
+
+Disadvantages:
+
+1. costly hardware
+2. slow
+
+## 3.(b)
+
+Describe the RSA-based blind signature technique. Discuss its role in the implementation of electronic payment systems and electronic voting systems.
+
+Answer:
+
+(Skipped. Is it present in syllabus?)
+
+## 3.(c)
+
+Explain what is a zero-knowledge proof (ZKP). What are the possible applications of ZKP?
+
+Answer:
+
+- ZKP is to convince someone that you know something (solution to a problem, a secret password, etc.) without revealing the information itself
+- It can be used in blockchain to hide transaction details.
+- It can also be used to prove user age without private info
+
+## 4.(a)
+
+What is the common factor attack on RSA and why is it practically possible?
+
+Answer:
+
+Assume there are 2 public keys $(e,n)$ using the common factor:
+
+- $n_1=p \cdot q_1$
+- $n_2=p \cdot q_2$
+
+Then we can easily find $p = \text{GCD}(n_1,n_2)$ using Euclid's algorithm
+
+Then we can calculate $q_1 = n_1 \div p$, $q_2 = n_2 \div p$​
+
+Then it is possible to calculate private keys. Both keys are compromised.
+
+The attack is practical because it is very fast, and insufficiently random key generation can give it a chance. 
+
+## 4.(b)
+
+What are the two main categories of intrusion detection methods? Describe advantages and disadvantages of methods from each category.
+
+Answer:
+
+[Notes](../notes/13-Monitoring-IDS.md#Intrusion Detection Methods)
+
+## 4.(c)
+
+A simple key exchange protocol shown below can be used to establish a key over an open channel. Here $K_b$ is a public key of B, $N_a$ and $N_b$ are random numbers (nonces) chosen by A and B, respectively, and $k_{ab}$ is the key for symmetric encryption to be exchanged.
+
+- Message 1. A → B : $N_a$
+- Message 2. B → A : $N_b$
+- Message 3. A → B : $\{k_{ab},A,N_b\}_{K_b}$
+- Message 4. B → A : $\{N_a\}_{k_{ab}}$
+
+What is the possible issue with this protocol? How can it be fixed?
+
+Answer:
+
+Vulnerable to MitM attacks. Use DH for key exchange.
+
+## 5.(a)
+
+For a block cipher, what is the Cipher Block Chaining mode (CBC)? What is the main purpose of using CBC mode? What is the main disadvantage of this mode?
+
+Answer:
+
+- Each block XOR with previous one and then encrypted, then serve as the input for next one (first XOR IV).
+- More secure than ECB as identical blocks will not be identical after encryption
+- if one block has error, all subsequent blocks will contain error
+
+## 5.(b)
+
+What is a multifactor authentication technique? Give an example and explain the rationale behind it.
+
+[Notes](../notes/03-Authentication.md#Multi-factor Authentication Techniques)
+
+## 5.(c)
+
+What is Fully Homomorphic Encryption (FHE)? What is the main issue with applications of FHE? Give an example of an application which would benefit from using FHE.
+
+-  FHE is a type of encryption that allows computations to be performed on encrypted data without ever decrypting it.
+- Computation cost can be high
+- Database
